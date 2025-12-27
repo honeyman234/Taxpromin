@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TaxPro Directory</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Simple animation library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+
+  <style>
+    body { font-family: 'Segoe UI', Arial; }
+
+    .hero {
+      background: linear-gradient(135deg, #b30000, #8b0000);
+      color: white;
+      padding: 110px 0;
+      text-align: center;
+    }
+
+    .header {
+        transition-property: opacity;
+        transition-timing-function: ease-in-out;
+        transition-duration: .5s;
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+
+    .feature-card {
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    }
+
+    .brand-red {
+      color: #b30000;
+    }
+
+    .btn-firs {
+      background:#b30000;
+      color:white;
+      border:none;
+    }
+    .btn-firs:hover {
+      background:#8b0000;
+      color:white;
+    }
+
+    footer{
+      background:#111;
+      color:#ccc;
+      padding:20px 0;
+      margin-top:50px;
+      text-align:center;
+    }
+  </style>
+  <style>
+/* Scope styles ONLY to this component */
+.tax-app-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+/* Button */
+.tax-app-btn {
+  /*background: #1e3a8a;*/
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Hidden menu */
+.tax-app-menu {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  position: absolute;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  border-radius: 10px;
+  width: 230px;
+  display: none;
+  z-index: 1000;
+}
+
+/* Show on hover */
+.tax-app-dropdown:focus-within .tax-app-menu,
+.tax-app-dropdown:focus-within .tax-app-menu {
+  display: block;
+}
+
+/* Items */
+.tax-app-menu li a {
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #111827;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* Hover effect */
+.tax-app-menu li a:hover {
+  background: #e5edff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-light bg-white shadow-sm px-4 py-3">
+  <h4 class="m-0 brand-red fw-bold">Taxpromin</h4>
+  <div>
+    <a href="listings.html" class="btn btn-firs">Find Professionals</a>
+    <div class="tax-app-dropdown">
+        <a href="#" class="btn btn-firs tax-app-btn">Tax Applications ▾</a>
+     <ul class="tax-app-menu">
+         <li><a href="https://nairatax.com/calculator/paye" target="_blank">Nigeria PAYE Tax Calculator</a></li>
+          <li><a href="https://nairatax.com/calculator/self-employed" target="_blank">Self-Employed Tax Calculator</a></li>
+           <li><a href="https://nairatax.com/calculator/wht" target="_blank">Withholding Tax (WHT) Calculator</a></li>
+            <li><a href="https://nairatax.com/calculator/cgt" target="_blank">Capital Gains Tax Calculator</a></li>
+             <li><a href="https://nairatax.com/calculator/vat" target="_blank">Nigeria VAT Calculator — Value Added Tax 2025</a></li>
+            <li><a href="https://nairatax.com/calculator/cit" target="_blank">Company Income Tax (CIT) + TET Calculator</a></li>
+       <li><a href="https://honeyman234.github.io/capital-allowance/" target="_blank">Capital Allowance Calculator</a></li>
+            <li><a href="https://honeyman234.github.io/invoice/" target="_blank">VAT Invoice Generator</a></li>
+        <li><a href="https://honeyman234.github.io/expense-tracker/" target="_blank">Expenses Tracker</a></li>
+        <li><a href="https://honeyman234.github.io/Discounting/" target="_blank">Present Value Calculator</a></li>
+    </ul>
+        </div>
+    <a href="https://taxpromax.firs.gov.ng/" target="_blank" class="btn">Taxpromax</a>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero animate__animated animate__fadeIn">
+  <h1 class="fw-bold header">Connect With Verified Tax & Accounting Professionals</h1>
+  <p class="mt-3 fs-5">Trusted experts for VAT • PAYE • CIT • PIT • Audit • Bookkeeping</p>
+  <a href="listings.html" class="btn btn-light btn-lg mt-3">
+    Browse Directory <i class="bi bi-arrow-right"></i>
+  </a>
+</section>
+
+<!-- FEATURES -->
+<section class="container mt-5">
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="p-4 border rounded-4 feature-card">
+        <h4 class="brand-red"><i class="bi bi-check-circle"></i> Verified Experts</h4>
+        <p>Professionals are listed only after manual assessment and approval.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="p-4 border rounded-4 feature-card">
+        <h4 class="brand-red"><i class="bi bi-people"></i> For Individuals & Businesses</h4>
+        <p>Find help for filing, compliance, advisory, payroll and accounting services.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="p-4 border rounded-4 feature-card">
+        <h4 class="brand-red"><i class="bi bi-shield-check"></i> Trusted Process</h4>
+        <p>We assess qualifications and experience before listing any professional.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  TaxPro Directory — Connecting taxpayers to verified tax professionals
+</footer>
+
+
+<script>
+    let header = ["The One Platform To Obtain The Best Professional Service","Get Access To Various Tax and Finance Applications","Connect With Verified Tax & Accounting Professionals"]
+
+   let count = 0;
+   let text = document.querySelector(".header")
+
+setInterval(() => {
+
+  // fade out
+  text.classList.add("hidden");
+
+  // wait for fade-out before changing text
+  setTimeout(() => {
+
+    // reset index
+    if (count >= header.length) {
+      count = 0;
+    }
+
+    // change text
+    text.innerHTML = header[count];
+
+    // fade back in
+    text.classList.remove("hidden");
+
+    count++;
+
+  }, 500);  // must match CSS transition duration
+
+}, 5000);
+</script>
+</body>
+</html>

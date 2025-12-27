@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tax Professionals Directory</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial;
+      background: #f8f9fa;
+    }
+
+    /* Header */
+    .navbar-custom {
+      background: #b30000;
+      color: white;
+      padding: 15px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #b30000;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .card {
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    }
+
+    .profile-img {
+  width: 100%;                /* fills card width */
+  aspect-ratio: 16 / 9;       /* maintains nice proportional rectangle */
+  object-fit: cover;           /* crop nicely if needed */
+  border-radius: 10px;         /* rounded corners */
+  display: block;
+}
+
+
+
+    .card-body {
+      padding: 10px 12px;
+    }
+
+    .badge-verified {
+      background: #b30000;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 6px;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+
+    .btn-firs {
+      background:#b30000;
+      color:white;
+      border:none;
+      font-size: 0.8rem;
+    }
+
+    .btn-firs:hover {
+      background:#8b0000;
+      color:white;
+    }
+
+    /* Filters */
+    .filter-bar select,
+    .filter-bar input {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body class="p-4">
+
+<!-- Navbar -->
+<div class="navbar-custom">Tax Professionals Directory</div>
+
+<!-- Filters & Search -->
+<div class="row filter-bar mb-4">
+  <div class="col-md-3">
+    <select id="cityFilter" class="form-select">
+      <option value="">All Cities</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select id="certFilter" class="form-select">
+      <option value="">All Certifications</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select id="serviceFilter" class="form-select">
+      <option value="">All Services</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <input id="search" class="form-control" placeholder="Search by name, city, certification or service">
+  </div>
+</div>
+
+<!-- Professional cards -->
+<div id="list" class="row"></div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
