@@ -17,22 +17,16 @@
   <style>
     body { font-family: 'Segoe UI', Arial; }
 
-    /*.hero {
-      background: linear-gradient(135deg, #b30000, #8b0000);
-      color: white;
-      padding: 110px 0;
-      text-align: center;
-    }*/
-
     .hero {
+      /*background: linear-gradient(135deg, #b30000, #8b0000);*/
       background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),url("images/background.png");
+      
       background-position: center top;
       background-size: cover;
       background-attachment: fixed;
       color: white;
       padding: 110px 0;
       text-align: center;
-
     }
 
     .header {
@@ -78,6 +72,57 @@
   </style>
   <style>
 /* Scope styles ONLY to this component */
+
+/*.currency-ticker {
+  background: #111;
+  color: white;
+  padding: 8px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.currency-ticker div {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 25s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+*/
+
+.ticker {
+  background: #b30000;
+  color: white;
+  padding: 8px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 150s linear infinite;
+  font-size: 14px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+
+
+
 .tax-app-dropdown {
   position: relative;
   display: inline-block;
@@ -129,10 +174,111 @@
 .tax-app-menu li a:hover {
   background: #e5edff;
 }
+
+
+#faq {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 10px;
+}
+
+#faq h2 {
+  text-align: center;
+  color: #b30000;
+  margin-bottom: 20px;
+}
+
+/* Accordion container */
+.accordion-item {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Header button */
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 15px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #b30000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+/* Hover color */
+.accordion-header:hover {
+  background: #b30000;
+}
+
+/* Body */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  background: #f8f9ff;
+  color: #333;
+  padding: 0 18px;
+  transition: max-height 0.3s ease;
+}
+
+/* Open state padding */
+.accordion-body.open {
+  padding: 15px 18px;
+}
+
+</style>
+
+<style>
+.footer {
+  background: #111;
+  color: #ddd;
+  padding: 50px 0 20px 0;
+  margin-top: 60px;
+}
+
+.footer h5 {
+  color: #ffcccc;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer .brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ff9999;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 25px;
+  padding-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
 </style>
 </head>
 
 <body>
+<div class="ticker">
+  <div class="ticker-content" id="ticker"></div>
+</div>
+
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-light bg-white shadow-sm px-4 py-3">
@@ -142,12 +288,12 @@
     <div class="tax-app-dropdown">
         <a href="#" class="btn btn-firs tax-app-btn">Tax Applications ▾</a>
      <ul class="tax-app-menu">
-        <!-- <li><a href="https://nairatax.com/calculator/paye" target="_blank">Nigeria PAYE Tax Calculator</a></li>
+         <li><a href="https://nairatax.com/calculator/paye" target="_blank">Nigeria PAYE Tax Calculator</a></li>
           <li><a href="https://nairatax.com/calculator/self-employed" target="_blank">Self-Employed Tax Calculator</a></li>
            <li><a href="https://nairatax.com/calculator/wht" target="_blank">Withholding Tax (WHT) Calculator</a></li>
             <li><a href="https://nairatax.com/calculator/cgt" target="_blank">Capital Gains Tax Calculator</a></li>
              <li><a href="https://nairatax.com/calculator/vat" target="_blank">Nigeria VAT Calculator — Value Added Tax 2025</a></li>
-            <li><a href="https://nairatax.com/calculator/cit" target="_blank">Company Income Tax (CIT) + TET Calculator</a></li> --->
+            <li><a href="https://nairatax.com/calculator/cit" target="_blank">Company Income Tax (CIT) + TET Calculator</a></li>
        <li><a href="https://honeyman234.github.io/capital-allowance/" target="_blank">Capital Allowance Calculator</a></li>
             <li><a href="https://honeyman234.github.io/invoice/" target="_blank">VAT Invoice Generator</a></li>
         <li><a href="https://honeyman234.github.io/expense-tracker/" target="_blank">Expenses Tracker</a></li>
@@ -196,9 +342,77 @@
   </div>
 </section>
 
-<footer>
-  TaxPro Directory — Connecting taxpayers to verified tax professionals
+<section id="faq">
+  <h2>Frequently Asked Questions (FAQ)</h2>
+
+  <div class="accordion">
+
+    <div class="accordion-item">
+      <button class="accordion-header">What is TaxPromin?</button>
+      <div class="accordion-body">
+        TaxPromin is a platform that connects taxpayers and businesses with verified tax and accounting professionals. It also provides tools, quizzes, and tips on tax and finance.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Who can use TaxPromin?</button>
+      <div class="accordion-body">
+        TaxPromin can be used by individuals, students, small businesses, tax professionals, and accountants across Nigeria.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">Is it free to use?</button>
+      <div class="accordion-body">
+        Yes, most features are free. Additional premium services may be added later but basic tools remain free.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">How can I get listed as a professional?</button>
+      <div class="accordion-body">
+        Send us a message through the contact section. Professionals are added after verification.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 mb-4">
+        <div class="brand">Taxpromin</div>
+        <p>Connecting taxpayers and businesses with verified tax & accounting professionals across Nigeria.</p>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">Find Professionals</a></li>
+          <li><a href="#">Tax Applications</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h5>Contact</h5>
+        <p>Email: info@taxpromin.com </p>
+        <p>WhatsApp: +234 9064103161</p>
+        <p><a href="https://honeyman234.github.io/Safehouse/" target="_blank">Developed by Safehouse Business Professionals</a><p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Taxpromin — All Rights Reserved
+    </div>
+  </div>
 </footer>
+
 
 
 <script>
@@ -232,8 +446,68 @@ setInterval(() => {
 
 }, 5000);
 </script>
+<script>
+const messages = [
+  "Keep business and personal bank accounts separate to avoid tax issues.",
+  "File your tax returns even if your business made a loss.",
+  "Missing filing deadlines leads to penalties — don’t wait until the last day.",
+  "Always request receipts and invoices — they are useful during audits.",
+  "Your Tax Identification Number (TIN) should be on all official documents.",
+  "VAT returns are due monthly, usually by the 21st.",
+  "PAYE must be remitted monthly once deducted from employees’ salaries.",
+  "Self-employed individuals are required to pay Personal Income Tax.",
+  "Keep records for at least 6 years — they may be requested for review.",
+  "Claim allowable expenses legally — don’t inflate expenses.",
+  "Register your business to gain access to loans and government opportunities.",
+  "Tax Clearance Certificates are often required for contracts and tenders.",
+  "Capital allowance can reduce your taxable profits on qualifying assets.",
+  "Withholding Tax is not an extra tax — it is an advance payment of income tax.",
+  "Always verify tax messages and payment links — avoid fraud.",
+  "Keep payroll records — they are essential for PAYE compliance.",
+  "Use e-filing platforms to save time and avoid crowds at tax offices.",
+  "Late payment attracts both penalties and interest — not just one.",
+  "VAT is not charged on all items; some goods and services are exempt.",
+  "Engage a qualified tax professional when in doubt — it saves money long term.",
+  "Donations to approved bodies may be tax deductible.",
+  "Record every business expense as soon as it occurs.",
+  "Avoid cash-only transactions — bank records help during assessments.",
+  "Understand your tax type: PAYE, VAT, CIT, PIT, WHT etc.",
+  "Good tax planning is legal; tax evasion is not."
+];
+
+
+document.getElementById("ticker").innerText = messages.join("   •   ");
+</script>
+
+<script>
+const headers = document.querySelectorAll(".accordion-header");
+
+headers.forEach(header => {
+  header.addEventListener("click", () => {
+
+    const body = header.nextElementSibling;
+
+    // close others
+    document.querySelectorAll(".accordion-body").forEach(item => {
+      if (item !== body) {
+        item.style.maxHeight = null;
+        item.classList.remove("open");
+      }
+    });
+
+    // toggle clicked one
+    if (body.style.maxHeight) {
+      body.style.maxHeight = null;
+      body.classList.remove("open");
+    } else {
+      body.style.maxHeight = body.scrollHeight + 40 + "px";
+;
+      body.classList.add("open");
+    }
+  });
+});
+</script>
+
+
 </body>
 </html>
-
-
-
